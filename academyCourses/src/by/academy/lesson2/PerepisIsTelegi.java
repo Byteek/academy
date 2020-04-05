@@ -3,16 +3,21 @@ package by.academy.lesson2;
 public class PerepisIsTelegi {
 
 	public static void main(String[] args) {
-		int s = 3700;
+		int s = 23497;
 		int sec;
-		int m;
-		int min, h;
+		int m, h, d, w;
+		int min, hours, day, week;
 		sec = s % 60;
 		m = (s - sec) / 60;
 		min = m % 60;
 		h = (m - min) / 60;
+		hours = h % 60;
+		d = (h - hours) / 24;
+		day = d % 24;
+		w = (d - day) / 7;
+		week = w % 7;
 		
-		System.out.println(h + " часов " + min + " минут " + sec + " секунд");
+		System.out.println(week + " РЅРµРґРµР»СЊ" + day +" РґРЅРµР№ " + hours + " С‡Р°СЃРѕРІ " + min + " РјРёРЅСѓС‚ " + sec + " СЃРµРєСѓРЅРґ");
 		
 	}
 
