@@ -1,5 +1,14 @@
 package by.academy.homework;
 
+//Ввести две строки с консоли. Определить, 
+//является ли одна строка перестановкой 
+//символов другой строки. Учитываем регистр. 
+//Не использовать сортировку :) 
+//Например: 
+//1.	“hello” и “hlleo” -> true
+//2.	“hello” и “art” -> false
+
+
 import java.util.Scanner;
 
 public class SixthTask {
