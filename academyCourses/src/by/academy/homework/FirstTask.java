@@ -27,53 +27,49 @@ public class FirstTask {
 		String amountStr = scan.nextLine();
 		System.out.println("Введите возраст покупателя ");
 		String ageStr = scan.nextLine();
-		
+
 		amount = Integer.parseInt(amountStr);
 		age = Integer.parseInt(ageStr);
-		
-		if ( amount < 100 ) {
+
+		if (amount < 100) {
 			amount = amount * 100 * 95 / 100;
 			cent = amount % 100;
 			rubli = amount / 100;
 			sale = 100 - 95;
 			System.out.println("Сумма с учетом скидки = " + rubli + " рублей " + cent + " копеек.");
 			System.out.println("Скидка составила " + sale + " процентов");
-		}else 
-			if(( amount >= 100 ) &&( amount < 200 ) ){
-				amount = amount * 100 * 93 / 100;
+		} else if ((amount >= 100) && (amount < 200)) {
+			amount = amount * 100 * 93 / 100;
+			cent = amount % 100;
+			rubli = amount / 100;
+			sale = 100 - 93;
+			System.out.println("Сумма с учетом скидки = " + rubli + " рублей " + cent + " копеек.");
+			System.out.println("Скидка составила " + sale + " процентов");
+		} else if ((amount >= 200) && (amount < 300)) {
+			if (age >= 18) {
+				amount = amount * 100 * 84 / 100;
 				cent = amount % 100;
 				rubli = amount / 100;
-				sale = 100 - 93;
+				sale = 100 - 84;
 				System.out.println("Сумма с учетом скидки = " + rubli + " рублей " + cent + " копеек.");
 				System.out.println("Скидка составила " + sale + " процентов");
-		}else 
-			if(( amount >= 200 ) &&( amount < 300 ) ) {
-				if ( age >=18 ) {
-					amount = amount * 100 * 84 / 100;
-					cent = amount % 100;
-					rubli = amount / 100;
-					sale = 100 - 84;
-					System.out.println("Сумма с учетом скидки = " + rubli + " рублей " + cent + " копеек.");
-					System.out.println("Скидка составила " + sale + " процентов");
-				}else {
-					amount = amount * 100 * 88 / 100;
-					cent = amount % 100;
-					rubli = amount / 100;
-					sale = 100 - 88;
-					System.out.println("Сумма с учетом скидки = " + rubli + " рублей " + cent + " копеек.");
-					System.out.println("Скидка составила " + sale + " процентов");
-				}
-					
-		}else
-			if(( amount >= 300 ) &&( amount < 400 ) ) {
-				amount = amount * 100 * 85 / 100;
+			} else {
+				amount = amount * 100 * 88 / 100;
 				cent = amount % 100;
 				rubli = amount / 100;
-				sale = 100 - 85;
+				sale = 100 - 88;
 				System.out.println("Сумма с учетом скидки = " + rubli + " рублей " + cent + " копеек.");
 				System.out.println("Скидка составила " + sale + " процентов");
-		}else 
-			if( amount >= 400 ) {
+			}
+
+		} else if ((amount >= 300) && (amount < 400)) {
+			amount = amount * 100 * 85 / 100;
+			cent = amount % 100;
+			rubli = amount / 100;
+			sale = 100 - 85;
+			System.out.println("Сумма с учетом скидки = " + rubli + " рублей " + cent + " копеек.");
+			System.out.println("Скидка составила " + sale + " процентов");
+		} else if (amount >= 400) {
 			amount = amount * 100 * 80 / 100;
 			cent = amount % 100;
 			rubli = amount / 100;
@@ -82,5 +78,5 @@ public class FirstTask {
 			System.out.println("Скидка составила " + sale + " процентов");
 		}
 	}
-	
+
 }

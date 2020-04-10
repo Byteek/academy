@@ -15,9 +15,9 @@ public class ThirdTask {
 			System.out.println("Введите число от 1 до 10");
 			number = scan.nextInt();
 			iNumber = number;
-		}while(iNumber > 10);
-		
-		for (int i = 1; i <= 10 ; i++ ) {
+		} while (iNumber > 10);
+
+		for (int i = 1; i <= 10; i++) {
 			System.out.print(number * i + "  ");
 		}
 	}
