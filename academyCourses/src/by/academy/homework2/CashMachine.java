@@ -14,13 +14,13 @@ public class CashMachine {
 	}
 
 	public boolean takeBanknote(int getCash) { // выдача денег
-		int sumMoney = banknote20 * 20 + banknote50 * 50 + banknote100 * 100;
+		int sumMoney = banknote20 * 20 + banknote50 * 50 + banknote100 * 100; // счиатем сумму всех денег
 
 		if (sumMoney >= getCash) {
 			forIssuingMoney(getCash);
-			return true;
+			return true; // можем выдать
 		} else {
-			return false;
+			return false; // не можем!
 		}
 	}
 
@@ -37,17 +37,17 @@ public class CashMachine {
 
 	}
 
-	public void getBanknote20(int addBanknote20) {
+	public void setBanknote20(int addBanknote20) {
 		this.addBanknote20 = addBanknote20;
 		banknote20 += addBanknote20;
 	}
 
-	public void getBanknote50(int addBanknote50) {
+	public void setBanknote50(int addBanknote50) {
 		this.addBanknote50 = addBanknote50;
 		banknote50 += addBanknote50;
 	}
 
-	public void getBanknote100(int addBanknote100) {
+	public void setBanknote100(int addBanknote100) {
 		this.addBanknote100 = addBanknote100;
 		banknote100 += addBanknote100;
 	}
@@ -55,11 +55,11 @@ public class CashMachine {
 	public void getAllBanknote(String whatBanknote, int numberBanknote) { // метод позволяет добавить в банкомат любую
 																			// купюру
 		if (whatBanknote.equals("20")) {
-			getBanknote20(numberBanknote);
+			setBanknote20(numberBanknote);
 		} else if (whatBanknote.equals("50")) {
-			getBanknote50(numberBanknote);
+			setBanknote50(numberBanknote);
 		} else if (whatBanknote.equals("100")) {
-			getBanknote100(numberBanknote);
+			setBanknote100(numberBanknote);
 		} else {
 			System.out.println("Такой купюры не принимаем");
 		}
