@@ -5,15 +5,18 @@ package by.academy.homework2;
 //Иерархия должна иметь хотя бы три уровня. 
 
 abstract class Appliances {
-	private boolean jack = true;
+	private boolean jack;
 	private int size;
 	private String color;
 
-	public String powerOn() {
-		return "";
+	public Appliances(boolean jack, int size, String color) {
+		super();
+		this.jack = jack;
+		this.size = size;
+		this.color = color;
 	}
 
-	public boolean getJack() {
+	public boolean isJack() {
 		return jack;
 	}
 
@@ -35,6 +38,10 @@ abstract class Appliances {
 
 	public void setColor(String color) {
 		this.color = color;
+	}
+
+	public String powerOn() {
+		return "";
 	}
 
 	public String toString() {
