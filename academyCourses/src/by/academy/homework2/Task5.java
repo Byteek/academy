@@ -17,5 +17,6 @@ public class Task5 {
 		for (String letters : words)
 			newLine.append(letters.toCharArray()[letters.length() - 1]);
 		System.out.println("Полученный результат - " + newLine.toString());
+		
 	}
 }
