@@ -9,7 +9,7 @@ public class Task5 {
 				+ "значение (операция удалась или нет). При снятии денег функция должна" + "\r\n"
 				+ "	рапечатывать каким количеством купюр какого номинала выдается сумма. Создать" + "\r\n"
 				+ "	конструктор с тремя параметрами – количеством купюр. Прочее – на ваше" + "\r\n" + "	усмотрение.";
-		
+
 		StringBuilder newLine = new StringBuilder();
 		line1 = line1.replaceAll("[–.,:;()!=+-1234567890]", " ");
 
@@ -17,5 +17,6 @@ public class Task5 {
 		for (String letters : words)
 			newLine.append(letters.toCharArray()[letters.length() - 1]);
 		System.out.println("Полученный результат - " + newLine.toString());
+
 	}
 }
