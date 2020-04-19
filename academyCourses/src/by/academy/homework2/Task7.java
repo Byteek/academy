@@ -9,6 +9,11 @@ public class Task7 {
 
 	public static void main(String[] args) {
 		String test = "Имеется        строка    с    текстом.";
+
+		if (test.length() > 1000) {
+			System.out.println("Строка слишком большая!");
+			return;
+		}
 		StringBuilder testBuilder = new StringBuilder();
 		String[] testNew = test.split("\\s+");
 		for (String i : testNew) {
