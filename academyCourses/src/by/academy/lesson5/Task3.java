@@ -21,7 +21,7 @@ public class Task3 {
 			if (arrMax[i] > cout) {
 				index = i;
 				cout = arrMax[i];
-				
+
 			}
 		}
 		System.out.println("Массив" + Arrays.toString(arr));
