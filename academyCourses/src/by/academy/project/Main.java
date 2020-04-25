@@ -5,6 +5,7 @@ import java.util.Scanner;
 public class Main {
 
 	public static void main(String[] args) {
+
 		int countProduct = 0;
 		String textMenu = "1. Введите 1 чтобы добавить продукт \r\n"
 				+ "2. Введите 2 чтобы удалить продукт из сделки\r\n" + "3. Введите 3 для вывода сделки на экран \r\n"
@@ -16,35 +17,20 @@ public class Main {
 		System.out.println("\t \t Добрый день! \r\n");
 		Scanner scanner = new Scanner(System.in);
 
-		while (!"0".equals(numberIn)) {
+		while (yesOrNo) {
 			System.out.println(textMenu);
 			numberIn = scanner.nextLine();
 			switch (numberIn) {
 			case "1": {
-				System.out.println("Введите название продукта");
-				String name = scanner.nextLine();
-				System.out.println("Введите цену продукта " + name);
-				double price = scanner.nextDouble();
-				System.out.println("Введите количество продукта " + name);
-				int quantity = scanner.nextInt();
-				allProduct[countProduct] = new Product(name, price, quantity);
-				System.out.println("Вы добавили продукт " + name + countProduct );
-				countProduct++;
+				Product.plusProduct();
 				break;
 			}
 			case "2": {
-				System.out.println("Введите название продукта который подлежит удалению");
-				String nameDelete = scanner.nextLine();
-				
-				countProduct--;
-				System.out.println("Вы удалили продукт");
+				Product.minusProduct();
 				break;
 			}
 			case "3": {
-				for (int i = 0; i < countProduct ; i++ ) {
-					System.out.println(allProduct[i].toString());
-				}
-				System.out.println("Ваша сделка - ");
+				System.out.println("Все продукты - " + Product.allProductToString());
 				break;
 			}
 			case "4": {
@@ -65,15 +51,16 @@ public class Main {
 			}
 			}
 		}
+	}
+}
 
-//		Sirok sirok = new Sirok(2.45, 20, "Сырок Мишутка", 35);
-//		Tomat tomat = new Tomat(1.40, 20 ,"Томат Слива", "желтый");
+//		Product kola = new Product("kola", 2.55, 5);
+//		Product pepsi = new Product("pepsi", 2.55, 5);
+//		Box<Product> myBox = new Box<>();
+//		myBox.setItem(new Product[] { kola, pepsi });
+//		System.out.println(myBox.getItem());
 //		User buyer = new User("Volodya", 50.50);
 //		User saler = new User("Magazin", 350.32);
 //
-//		Deal deal = new Deal(new Product[] {tomat, sirok}, buyer, saler);
+//		Deal deal = new Deal(new Product[] { kola, pepsi }, buyer, saler);
 //		System.out.println(deal.deal());
-
-	}
-
-}

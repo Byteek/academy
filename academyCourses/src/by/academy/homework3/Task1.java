@@ -36,7 +36,7 @@ public class Task1 {
 		newStringRegExp(test);
 	}
 
-//Задание первое!
+//Задание 1.1
 	public static String newStringSplit(String str) {
 
 		String[] words = str.split("[-_,.!?\\s+]");
@@ -51,7 +51,7 @@ public class Task1 {
 		return newLine.toString();
 	}
 
-//Задание второе!
+//Задание 1.2
 	public static void newStringRegExp(String str) {
 		Pattern p = Pattern.compile("\\b([a-cA-C]\\w*)\\b");
 		Matcher m = p.matcher(str);
