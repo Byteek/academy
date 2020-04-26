@@ -8,7 +8,7 @@ public class Deal {
 	private User buyer;
 	private User saler;
 	private double sumAllProduct;
-	private Date deadLineDate;
+	private Calendar deadLineDate;
 
 	public Deal() {
 
@@ -18,9 +18,8 @@ public class Deal {
 		this.product = product;
 		this.buyer = buyer;
 		this.saler = saler;
-		deadLineDate = new Date();
-		Calendar deadLine = Calendar.getInstance();
-		deadLine.add(Calendar.DAY_OF_MONTH, 10);
+		Calendar deadLineDate = Calendar.getInstance();
+		deadLineDate.add(Calendar.DAY_OF_MONTH, 10);
 	}
 
 	@DealSettings(legality = Legality.LEGAL, numProduct = 0)
@@ -34,7 +33,7 @@ public class Deal {
 			buyer.setMoney(buyer.getMoney() - sumAllProduct);
 			return "Ваша сделка прошла успешно!" + "\r\n";
 		} else {
-			return "Приходи когда у тебя будет больше денег!";
+			return "У вас не достаточно средств для совершения сделки.";
 		}
 
 	}

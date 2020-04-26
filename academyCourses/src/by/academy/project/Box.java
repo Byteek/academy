@@ -2,6 +2,7 @@ package by.academy.project;
 
 public class Box<K> {
 
+	
 	private K[] item;
 
 	public K[] getItem() {
