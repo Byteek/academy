@@ -9,7 +9,6 @@ public class BelarusPhoneValidator implements Validator {
 		Pattern p = Pattern.compile("(\\+375)(29|33|25|44)(\\d{7})");
 		Matcher m = p.matcher(phoneNumber);
 		return m.find();
-
 	}
 
 	

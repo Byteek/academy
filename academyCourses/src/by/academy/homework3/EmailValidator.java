@@ -8,6 +8,5 @@ public class EmailValidator implements Validator {
 		Pattern p = Pattern.compile("^[\\w\\d-\\+]+(\\.[\\w\\d-]+)*@[\\w\\d-]+(\\.[\\w\\d]+)*(\\.[A-Za-z]{2,})$");
 		Matcher m = p.matcher(emailAddress);
 		return m.find();
-
 	}
 }
