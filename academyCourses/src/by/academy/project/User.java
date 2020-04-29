@@ -10,7 +10,7 @@ import java.util.regex.Pattern;
 
 import by.academy.homework3.Validator;
 
-public class User implements Validator {
+public class User  {
 	private String name;
 	private double money;
 	private Date dateOfBirth;
@@ -78,7 +78,15 @@ public class User implements Validator {
 	}
 
 	public void setEmail(String email) {
-		if (validateEmail(email)) {
+		Validator emailValidator = new Validator() {
+			public boolean validate(String emailAddress) {
+				Pattern p = Pattern
+						.compile("^[\\w\\d-\\+]+(\\.[\\w\\d-]+)*@[\\w\\d-]+(\\.[\\w\\d]+)*(\\.[A-Za-z]{2,})$");
+				Matcher m = p.matcher(emailAddress);
+				return m.find();
+			}
+		};
+		if (emailValidator.validate(email)) {
 			this.email = email;
 		}
 	}
@@ -105,10 +113,12 @@ public class User implements Validator {
 		return m.find();
 	}
 
-	public static boolean validateEmail(String emailAddress) {
-		Pattern p = Pattern.compile("^[\\w\\d-\\+]+(\\.[\\w\\d-]+)*@[\\w\\d-]+(\\.[\\w\\d]+)*(\\.[A-Za-z]{2,})$");
-		Matcher m = p.matcher(emailAddress);
-		return m.find();
-	}
+//	public static boolean validateEmail(String emailAddress) {
+//		Pattern p = Pattern.compile("^[\\w\\d-\\+]+(\\.[\\w\\d-]+)*@[\\w\\d-]+(\\.[\\w\\d]+)*(\\.[A-Za-z]{2,})$");
+//		Matcher m = p.matcher(emailAddress);
+//		return m.find();
+//	}
+
+
 
 }

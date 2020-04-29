@@ -6,7 +6,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.Scanner;
 
-public class Task3 {
+public class Task2 {
 
 	public static void main(String[] args) throws ParseException {
 		Scanner scan = new Scanner(System.in);
