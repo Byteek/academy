@@ -12,28 +12,41 @@ package by.academy.lesson9;
 
 public class User {
 
-	private String login;
-	private String password;
-	
-	
+	static private String login;
+	static private String password;
+
 	public User(String login, String password) {
 		super();
 		this.login = login;
 		this.password = password;
 	}
 
+	public static String getLogin() {
+		return login;
+	}
+
+	public static void setLogin(String login) {
+		User.login = login;
+	}
+
+	public static String getPassword() {
+		return password;
+	}
+
+	public static void setPassword(String password) {
+		User.password = password;
+	}
+
 	public void createQuery() {
 		Query query = new Query();
 		query.printToLog();
 	}
-	
-	class Query {
-		
+
+	static class Query {
+
 		void printToLog() {
-			System.out.println("Пользователь с логином - " + login + " и паролем - " + password + " отправил запрос.");
-			
+			System.out.println(
+					"Пользователь с логином - " + getLogin() + " и паролем - " + getPassword() + " отправил запрос.");
 		}
-		
 	}
-	
 }

@@ -10,11 +10,6 @@ public class Main {
 		User user = new User(login, password);
 		user.createQuery();
 
-		User.Query userQuery = user.new Query();
-		userQuery.printToLog();
-
-		new User(login, password).new Query().printToLog();
-
 		System.out.println("---------------------------");
 
 		String loginUserLocal = "IAMUSERLOCAL";

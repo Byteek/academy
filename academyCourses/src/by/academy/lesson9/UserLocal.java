@@ -26,4 +26,6 @@ public class UserLocal {
 		query.printToLog();
 
 	}
+	
+	
 }
