@@ -15,6 +15,14 @@ public class Main {
 
 		new User(login, password).new Query().printToLog();
 
+		System.out.println("---------------------------");
+
+		String loginUserLocal = "IAMUSERLOCAL";
+		String passwordUserLocal = "123456";
+
+		UserLocal userLocal = new UserLocal(loginUserLocal, passwordUserLocal);
+		userLocal.createQuery();
+
 	}
 
 }
