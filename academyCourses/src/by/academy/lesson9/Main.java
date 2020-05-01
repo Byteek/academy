@@ -10,6 +10,7 @@ public class Main {
 		User user = new User(login, password);
 		user.createQuery();
 
+		
 		System.out.println("---------------------------");
 
 		String loginUserLocal = "IAMUSERLOCAL";
