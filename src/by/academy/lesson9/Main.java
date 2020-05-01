@@ -7,6 +7,7 @@ public class Main {
 		String login = "IAMUSER";
 		String password = "qwerty";
 
+		
 		User user = new User(login, password);
 		user.createQuery();
 
