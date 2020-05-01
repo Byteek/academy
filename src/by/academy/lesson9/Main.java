@@ -1,5 +1,7 @@
 package by.academy.lesson9;
 
+import java.util.Arrays;
+
 public class Main {
 
 	public static void main(String[] args) {
@@ -7,7 +9,6 @@ public class Main {
 		String login = "IAMUSER";
 		String password = "qwerty";
 
-		
 		User user = new User(login, password);
 		user.createQuery();
 
@@ -19,6 +20,8 @@ public class Main {
 		UserLocal userLocal = new UserLocal(loginUserLocal, passwordUserLocal);
 		userLocal.createQuery();
 
+		
 	}
 
 }
+
