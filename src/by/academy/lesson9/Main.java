@@ -20,8 +20,6 @@ public class Main {
 		UserLocal userLocal = new UserLocal(loginUserLocal, passwordUserLocal);
 		userLocal.createQuery();
 
-		
 	}
 
 }
-

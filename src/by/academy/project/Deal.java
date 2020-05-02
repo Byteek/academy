@@ -3,8 +3,8 @@ package by.academy.project;
 import java.util.Calendar;
 import java.util.Date;
 
-public class Deal {
-	private Product[] product;
+public class Deal<T extends Product> {
+	private T[] t;
 	private User buyer;
 	private User saler;
 	private double sumAllProduct;
@@ -14,8 +14,8 @@ public class Deal {
 
 	}
 
-	public Deal(Product[] product, User buyer, User saler) {
-		this.product = product;
+	public Deal(T[] t, User buyer, User saler) {
+		this.t = t;
 		this.buyer = buyer;
 		this.saler = saler;
 		Calendar deadLineDate = Calendar.getInstance();
@@ -24,8 +24,8 @@ public class Deal {
 
 	@DealSettings(legality = Legality.LEGAL, numProduct = 0)
 	public String deal() {
-		for (int i = 0; i < product.length; i++) {
-			sumAllProduct += product[i].cost();
+		for (int i = 0; i < t.length; i++) {
+			sumAllProduct += t[i].cost();
 		}
 
 		if (sumAllProduct <= buyer.getMoney()) {
@@ -40,8 +40,8 @@ public class Deal {
 
 	@Deprecated
 	public String dealUSSR() {
-		for (int i = 0; i < product.length; i++) {
-			sumAllProduct += product[i].cost();
+		for (int i = 0; i < t.length; i++) {
+			sumAllProduct += t[i].cost();
 		}
 
 		if (sumAllProduct <= buyer.getMoney()) {
