@@ -22,10 +22,12 @@ public class Date {
 	}
 
 	public Date(String dateStr) {
+		
 		this.dateTest = dateStr;
 		System.out.println("you entered - " + dateStr);
 		PleaseEnterDate(this.dateTest);
 		this.dateStr = dateStr;
+		
 	}
 
 	private void PleaseEnterDate(String dateStr) {
