@@ -25,15 +25,6 @@ public class MyArrayListMain {
 		test.remove("28");
 		System.out.println(test.getIndexLastItem()); // 5
 
-		MyIterator<String> it = test.iterator();
-
-		
-		if (it.hasNext()) {
-			for (int i = 0; i < test.sizeArray()-1; i++) {
-				System.out.println(it.next());
-			}
-		}
-
 	}
 
 }

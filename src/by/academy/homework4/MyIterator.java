@@ -6,7 +6,7 @@ public class MyIterator<T> {
 	private int ArrLength;
 	private T[] array;
 
-	public MyIterator(T [] array) {
+	public MyIterator(T[] array) {
 		index = 0;
 		this.ArrLength = array.length;
 		this.array = array;
@@ -16,7 +16,6 @@ public class MyIterator<T> {
 		return index < ArrLength;
 	}
 
-	
 	public T next() {
 		if (index < ArrLength) {
 			return array[index++];

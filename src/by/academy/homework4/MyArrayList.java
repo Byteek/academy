@@ -92,7 +92,7 @@ public class MyArrayList<T> {
 	/*
 	 * Возвращает количество элементов в списке
 	 */
-	
+
 	public int sizeArray() {
 		return item;
 	}

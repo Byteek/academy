@@ -16,11 +16,11 @@ public class DateMain {
 		System.out.println(date2.dayOfTheWeek());
 
 		Date date3 = new Date("04-05-2019"); // leapYear -- false
-		
+
 		System.out.println(date2.leapYear());
 		System.out.println(date3.leapYear());
 
 		System.out.println(Date.numberOfDaysBetween(date1, date2));
-		
+
 	}
 }
