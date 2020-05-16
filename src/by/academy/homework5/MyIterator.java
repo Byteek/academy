@@ -11,10 +11,11 @@ public class MyIterator<T> implements Iterator<T> {
 	private T simpleArray;
 	private T[][] array;
 	private int first, second;
-	
+
 	public MyIterator(T simpleArray) {
 		this.simpleArray = simpleArray;
 	}
+
 	public MyIterator(T[][] array) {
 		this.array = array;
 	}
@@ -33,6 +34,5 @@ public class MyIterator<T> implements Iterator<T> {
 		}
 		return item;
 	}
-	
 
 }

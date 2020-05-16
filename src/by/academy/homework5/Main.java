@@ -32,11 +32,10 @@ public class Main {
 //		selectsAnItem(array);
 //		selectsAnItem(link);
 
-		
 		// --------------------------------------------------------------------------//
 		// Задание 3
 		// --------------------------------------------------------------------------//
-		
+
 //		Integer[][] array = new Integer[][] { { 1 }, { 1, 2, 33, 45 }, { 2, 4, 2, 1, 2 } };
 //		MyIterator i = new MyIterator(array);
 //		while (i.hasNext()) {
@@ -102,13 +101,12 @@ public class Main {
 //			System.out.println("Array is to small, expand the array");
 //		}
 
-		
 	}
 
 	// --------------------------------------------------------------------------//
 	// Задание 1
 	// --------------------------------------------------------------------------//
-	
+
 	public static Collection<?> collectionReturnWithoutDuplicates(Collection<?> al) {
 		Set<?> s = new LinkedHashSet<>(al);
 		Collection<?> coll = new ArrayList<>(s);
