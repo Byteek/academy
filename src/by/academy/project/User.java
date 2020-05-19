@@ -10,7 +10,7 @@ import java.util.regex.Pattern;
 
 import by.academy.homework3.Validator;
 
-public class User  {
+public class User {
 	private String name;
 	private double money;
 	private Date dateOfBirth;
@@ -33,6 +33,36 @@ public class User  {
 		this.dateOfBirth = dateOfBirth;
 		this.phone = phone;
 		this.email = email;
+	}
+
+	public static User getSeller() {
+		String name;
+		double money;
+//		Date dateOfBirth;
+//		String phone;
+//		String email;
+		Scanner scanner = new Scanner(System.in);
+		System.out.println("Введите имя");
+		name = scanner.nextLine();
+		System.out.println("Введите сумму которая имеется у вас на счету");
+		money = Double.parseDouble(scanner.nextLine());
+
+		return new User(name, money);
+	}
+
+	public static User getBuyer() {
+		String name;
+		double money;
+		Date dateOfBirth;
+		String phone;
+		String email;
+		Scanner scanner = new Scanner(System.in);
+		System.out.println("Введите имя");
+		name = scanner.nextLine();
+		System.out.println("Введите сумму которая имеется у вас на счету");
+		money = Double.parseDouble(scanner.nextLine());
+
+		return new User(name, money);
 	}
 
 	public Date getDateOfBirth() {
@@ -118,7 +148,5 @@ public class User  {
 //		Matcher m = p.matcher(emailAddress);
 //		return m.find();
 //	}
-
-
 
 }

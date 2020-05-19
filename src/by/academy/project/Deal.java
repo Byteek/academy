@@ -1,51 +1,81 @@
 package by.academy.project;
 
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 
 public class Deal<T extends Product> {
-	private T[] t;
+	private ArrayList<T> t;
 	private User buyer;
-	private User saler;
+	private User seller;
 	private double sumAllProduct;
-	private Calendar deadLineDate;
+	private Calendar purchaseTime;
 
 	public Deal() {
 
 	}
 
-	public Deal(T[] t, User buyer, User saler) {
+	public Deal(ArrayList<T> t, User buyer, User seller) {
 		this.t = t;
 		this.buyer = buyer;
-		this.saler = saler;
-		Calendar deadLineDate = Calendar.getInstance();
-		deadLineDate.add(Calendar.DAY_OF_MONTH, 10);
+		this.seller = seller;
+		Calendar purchaseTime = Calendar.getInstance();
 	}
 
 	@DealSettings(legality = Legality.LEGAL, numProduct = 0)
-	public String deal() {
-		for (int i = 0; i < t.length; i++) {
-			sumAllProduct += t[i].cost();
+	public void deal() throws IOException {
+		for (Product i : DealProgramm.listDeal) {
+			sumAllProduct += i.getPrice() * i.getQuantity();
 		}
 
 		if (sumAllProduct <= buyer.getMoney()) {
-			saler.setMoney(saler.getMoney() + sumAllProduct);
+			seller.setMoney(seller.getMoney() + sumAllProduct);
 			buyer.setMoney(buyer.getMoney() - sumAllProduct);
-			return "Ваша сделка прошла успешно!" + "\r\n";
-		} else {
-			return "У вас не достаточно средств для совершения сделки.";
-		}
+			if (!DealProgramm.listShop.isEmpty()) {
+				for (Product shopItem : DealProgramm.listShop) {
+					for (Product buyerItem : DealProgramm.listDeal) {
+						if (shopItem.getName().equals(buyerItem.getName())) {
+							shopItem.setQuantity(shopItem.getQuantity() - buyerItem.getQuantity());
+						}
+					}
+				}
+			}
+			Date d = new Date(System.currentTimeMillis());
+			System.out.println("Ваша сделка прошла успешно!" + "\r\n");
+			System.out.println("Заберите чек!");
+			DateFormat dfReceipt = new SimpleDateFormat("hh.mm.ss_dd.MM.yyyy");
+			String textFromReceipt = dfReceipt.format(d) + "\r\n" + "Продавец - " + seller.getName() + "\r\n";
 
+			StringBuilder sb = new StringBuilder(textFromReceipt);
+			for (Product i : DealProgramm.listDeal) {
+				sb.append("Товар - " + i.getName() + "\r\n" + "кол-во - " + i.getQuantity() + "\r\n" + "Цена - "
+						+ i.getPrice() * i.getQuantity() + "\r\n");
+			}
+			sb.append("Общая цена - " + sumAllProduct);
+			DateFormat df = new SimpleDateFormat("hhmmss_yyyyMMdd");
+			System.out.println(df.format(d));
+			File dir = new File("All Receipt");
+			dir.mkdir();
+			File file = new File(dir, df.format(d) + ".txt");
+			file.createNewFile();
+			FileWriter fw = new FileWriter(file);
+			fw.write(sb.toString());
+			fw.flush();
+		} else {
+			System.out.println("У клиента не достаточно средств для совершения сделки.");
+		}
 	}
 
 	@Deprecated
 	public String dealUSSR() {
-		for (int i = 0; i < t.length; i++) {
-			sumAllProduct += t[i].cost();
-		}
 
 		if (sumAllProduct <= buyer.getMoney()) {
-			saler.setMoney(saler.getMoney() + sumAllProduct);
+			seller.setMoney(seller.getMoney() + sumAllProduct);
 			buyer.setMoney(buyer.getMoney() - sumAllProduct);
 			return "Ваша сделка на базаре прошла успешно!" + "\r\n";
 		} else {
@@ -62,11 +92,11 @@ public class Deal<T extends Product> {
 		this.buyer = buyer;
 	}
 
-	public User getSaler() {
-		return saler;
+	public User getSeller() {
+		return seller;
 	}
 
-	public void setSaler(User saler) {
-		this.saler = saler;
+	public void setSaler(User seller) {
+		this.seller = seller;
 	}
 }

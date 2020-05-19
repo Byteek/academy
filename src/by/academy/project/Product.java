@@ -1,11 +1,11 @@
 package by.academy.project;
 
 import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.List;
 import java.util.Scanner;
 
-public class  Product {
+public class Product {
+
 	private double price;
 	private String name = "Default name";
 	private int quantity;
@@ -13,7 +13,7 @@ public class  Product {
 	public static int count = 0;
 	public static int countArr = 0;
 
-	public static List<Product> listProduct = new LinkedList();
+	public List<Product> listProduct = new ArrayList<Product>();
 
 	public Product() {
 
@@ -32,34 +32,156 @@ public class  Product {
 		return sum;
 	}
 
-	public static void  plusProduct() {
-		Scanner scanner = new Scanner(System.in);
-		System.out.println("Введите название продукта");
-		String name = scanner.nextLine();
-		System.out.println("Введите цену продукта " + name);
-		double price = scanner.nextDouble();
-		System.out.println("Введите количество продукта " + name);
-		int quantity = scanner.nextInt();
-		System.out.println("Вы добавили продукт " + name + count);
-		listProduct.add(new Product(name, price, quantity));
-	}
-
-	public static void minusProduct() {
-		Scanner scanner = new Scanner(System.in);
-		System.out.println("Введите название продукта");
-		String name = scanner.nextLine();
-
-		for (Product i : listProduct) {
-			if (i.name.equals(name)) {
-				listProduct.remove(i);
-			}
+	public static Product plusProduct() {
+		try {
+			String name;
+			int smartOrAss;
+			int quantity;
+			double price;
+			Scanner scanner = new Scanner(System.in);
+			System.out.println("Выберите тип продукта");
+			System.out.println("Введите 1, если это смартфон");
+			System.out.println("Введите 2, если это аксессуар");
+			smartOrAss = Integer.parseInt(scanner.nextLine());
+			while (true)
+				if (smartOrAss == 1) {
+					System.out.println("Введите название смартфона");
+					name = scanner.nextLine();
+					System.out.println("Введите цену смартфона " + name);
+					price = Double.parseDouble(scanner.nextLine());
+					System.out.println("Введите количество смартфонов " + name);
+					quantity = scanner.nextInt();
+					System.out.println("Вы добавили смартфон(ы) " + name);
+					return (new Smartphone(name, price, quantity));
+				} else if (smartOrAss == 2) {
+					System.out.println("Введите название аксессуара");
+					name = scanner.nextLine();
+					System.out.println("Введите цену аксессуара " + name);
+					price = Double.parseDouble(scanner.nextLine());
+					System.out.println("Введите количество аксессуаров " + name);
+					quantity = scanner.nextInt();
+					System.out.println("Вы добавили аксессуар(ы) " + name);
+					return (new Accessories(name, price, quantity));
+				} else {
+					System.out.println("Пожалуйста, повторите еще раз!");
+					return null;
+				}
+		} catch (NumberFormatException e) {
+			System.err.println("Вы ввели неправильные данные");
+			return null;
 		}
+
 	}
 
-	public static List<Product> allProductToString() {
+	public static Product plusUsersProduct() {
+		String name;
+		int smartOrAss;
+		int quantity;
+		double price = 0;
+		double isPrice = 0;
+		Scanner scanner = new Scanner(System.in);
+		System.out.println("Выберите тип продукта");
+		System.out.println("Введите 1, если это смартфон");
+		System.out.println("Введите 2, если это аксессуар");
+		smartOrAss = Integer.parseInt(scanner.nextLine());
+		if (smartOrAss == 1) {
+			System.out.println("Введите название смартфона");
+			name = scanner.nextLine();
+			if (!DealProgramm.listShop.isEmpty()) {
+				for (Product i : DealProgramm.listShop) {
+					if (name.equals(i.name)) {
+						isPrice = i.getPrice();
+						break;
+					}
+				}
 
-		return listProduct;
+			}
+			price = isPrice;
+
+			System.out.println("Введите количество смартфонов " + name);
+			quantity = scanner.nextInt();
+			System.out.println("Вы добавили смартфон(ы) " + name);
+			return (new Smartphone(name, price, quantity));
+		} else if (smartOrAss == 2) {
+			System.out.println("Введите название аксессуара");
+			name = scanner.nextLine();
+			if (!DealProgramm.listShop.isEmpty()) {
+				for (Product i : DealProgramm.listShop) {
+					if (name.equals(i.name)) {
+						isPrice = i.getPrice();
+						break;
+					}
+				}
+			}
+			price = isPrice;
+			System.out.println("Введите количество аксессуаров " + name);
+			quantity = scanner.nextInt();
+			System.out.println("Вы добавили аксессуар(ы) " + name);
+			return (new Accessories(name, price, quantity));
+		} else {
+			System.out.println("Пожалуйста, повторите еще раз!");
+			return null;
+		}
+
 	}
+
+//	public static Product plusUsersProduct() {
+//		String name;
+//		int smartOrAss;
+//		int quantity;
+//		double price = 0;
+//		Scanner scanner = new Scanner(System.in);
+//		System.out.println("Выберите тип продукта");
+//		System.out.println("Введите 1, если это смартфон");
+//		System.out.println("Введите 2, если это аксессуар");
+//		smartOrAss = scanner.nextInt();
+//		if (smartOrAss == 1) {
+//			System.out.println("Введите название смартфона");
+//			name = scanner.nextLine();
+//			if (!DealProgramm.listShop.isEmpty()) {
+//				for (Product i : DealProgramm.listShop) {
+//					if (name.equals(i.name)) {
+//						price = i.getPrice();
+//					}
+//				}
+//			}
+//			System.out.println("Введите количество смартфонов " + name);
+//			quantity = scanner.nextInt();
+//			System.out.println("Вы добавили смартфон(ы) " + name);
+//			return (new Smartphone(name, price, quantity));
+//		} else if (smartOrAss == 2) {
+//			System.out.println("Введите название аксессуара");
+//			name = scanner.nextLine();
+//			if (!DealProgramm.listShop.isEmpty()) {
+//				for (Product i : DealProgramm.listShop) {
+//					if (name.equals(i.name)) {
+//						price = i.getPrice();
+//					}
+//				}
+//			}
+//			System.out.println("Введите количество аксессуаров " + name);
+//			quantity = scanner.nextInt();
+//			System.out.println("Вы добавили аксессуар(ы) " + name);
+//			return (new Accessories(name, price, quantity));
+//		} else {
+//			System.out.println("Пожалуйста, повторите еще раз!");
+//		}
+//
+//		return null;
+//
+//	}
+
+//	public static void minusProduct() {
+//		Scanner scanner = new Scanner(System.in);
+//		System.out.println("Введите название продукта");
+//		String name = scanner.nextLine();
+//
+//		for (Product i : listProduct) {
+//			if (i.name.equals(name)) {
+//				listProduct.remove(i);
+//			}
+//		}
+//	}
 
 	public double getPrice() {
 		return price;
