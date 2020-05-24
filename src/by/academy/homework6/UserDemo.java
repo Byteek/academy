@@ -9,7 +9,7 @@ import java.util.ArrayList;
 public class UserDemo {
 
 	public static void main(String[] args) throws IOException {
-		File userFile ;
+		File userFile;
 		User user1 = new User("Погодский", "Никита", 23);
 		User user2 = new User("Шкурко", "Денис", 21);
 		User user3 = new User("Слесарев", "Валентин", 23);
@@ -39,16 +39,18 @@ public class UserDemo {
 		dirFromUser.mkdir();
 
 		for (int i = 0; i < userList.size(); i++) {
-			userFile = new File(dirFromUser,
-					(userList.get(i).getName() + "_" + userList.get(i).getSoName() + ".txt"));
+			userFile = new File(dirFromUser, (userList.get(i).getName() + "_" + userList.get(i).getSoName() + ".txt"));
 			userFile.createNewFile();
 
 			try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(userFile))) {
-				oos.writeObject(userList.get(i));
+				oos.writeObject(userList.get(i).getName());
+				oos.writeObject(userList.get(i).getSoName());
+				oos.writeObject(userList.get(i).getAge());
 			} catch (Exception ex) {
 				System.err.println(ex.getMessage());
 			}
 		}
+
 	}
 
 }
