@@ -16,12 +16,11 @@ public class StreamDemo {
 //		.peek(System.out::println)
 //		.count();     //завершающая операция    
 //		System.out.println(count + "End");
-
 //		}
 		long[] longs;
 
 		longs = new Random().longs(100, 0, 100).toArray();
-		
+
 //		streamLong.limit(100).peek(System.out::println).count();
 
 	}
