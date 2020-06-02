@@ -8,6 +8,8 @@ import java.util.stream.Stream;
  * 
  * @author bytee
  *		Тут попробовал с даблом, потому что у лонга были дубликаты и мапа не хотела принимать одинаковые ключи
+ *По большому счету тоже самое, за исключением того, что в не пришлось удалять дубликаты при создании мапы, потому что все числа были рандомные
+ *
  */
 public class StreamDemo2 {
 
@@ -33,7 +35,6 @@ public class StreamDemo2 {
 				.collect(Collectors.toList());
 		
 		
-		System.out.println("");
 		list.stream().forEach(System.out::println); //
 		System.out.println("");
 		System.out.println(mapNumber);
