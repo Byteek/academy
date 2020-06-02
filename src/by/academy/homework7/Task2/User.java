@@ -1,6 +1,9 @@
 package by.academy.homework7.Task2;
+/**
+ * 
+ *b)	Добавить класс User, который наследуется от Person, с полями: login, password, email
+ */
 
-//b)	Добавить класс User, который наследуется от Person, с полями: login, password, email
 
 public class User extends Person {
 	private String login;

@@ -1,6 +1,8 @@
 package by.academy.homework7.Task2;
-
-//a)	Создать свой класс Person с полями: firstName, lastName, age, dateOfBirth 
+/**
+ * 
+ * a)	Создать свой класс Person с полями: firstName, lastName, age, dateOfBirth 
+ */
 
 public class Person {
 	private String firstName;
