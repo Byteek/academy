@@ -1,12 +1,12 @@
 package by.academy.homework7.Task2;
 
-
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
 /**
  *
+ * . Вывести с помощью рефлексии все поля и методы, сначала через
  * getMethod("name") getMethods() getField("name") getFields() а затем через
  * getDeclaredMethod("name") getDeclaredMethods() getDeclaredField("name")
  * getDeclaredFields() Посмотреть разницу. Просетать все значения через
